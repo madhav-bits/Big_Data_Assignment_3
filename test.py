@@ -22,7 +22,6 @@ oneHotEncoded = np.transpose(encoded,(0,2,1))
 oneHotEncodedTest = oneHotEncoded[...,np.newaxis]
 print (oneHotEncoded[0])
 
-print (oneHotEncodedTest.shape)
 
 
 
@@ -33,6 +32,8 @@ labelsPredicted = model.predict(oneHotEncodedTest,verbose=1,batch_size=128)
 print (labelsPredicted[0])
 
 classSeqLabels = np.zeros(labelsPredicted.shape[0])
+
+
 i=0
 for pred in labelsPredicted:
     if pred[0]>=0.5:
